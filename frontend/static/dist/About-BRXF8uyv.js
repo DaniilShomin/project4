@@ -1,0 +1,1 @@
+import{u as r,j as e,L as t}from"./main-BDSW5kVj.js";function n(){const{app_name:s}=r().props;return e.jsxs("div",{children:[e.jsx("h1",{children:s}),e.jsx("h1",{children:"About Page"}),e.jsx(t,{href:"/",children:"Back to Home"})]})}export{n as default};

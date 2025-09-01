@@ -1,0 +1,30 @@
+{
+  "main.tsx": {
+    "file": "main-BDSW5kVj.js",
+    "name": "main",
+    "src": "main.tsx",
+    "isEntry": true,
+    "dynamicImports": [
+      "pages/About.tsx",
+      "pages/Index.tsx"
+    ]
+  },
+  "pages/About.tsx": {
+    "file": "About-BRXF8uyv.js",
+    "name": "About",
+    "src": "pages/About.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "main.tsx"
+    ]
+  },
+  "pages/Index.tsx": {
+    "file": "Index-CT-WJk2e.js",
+    "name": "Index",
+    "src": "pages/Index.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "main.tsx"
+    ]
+  }
+}
