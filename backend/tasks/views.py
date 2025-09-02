@@ -41,6 +41,7 @@ class IndexTaskView(BaseTaskView):
                 "labels": labels,
                 "users": users,
                 "statuses": statuses,
+                "filter": dict(request.GET),
             },
         )
 

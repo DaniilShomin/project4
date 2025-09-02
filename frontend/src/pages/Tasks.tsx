@@ -16,11 +16,12 @@ export default function Index( props ) {
     const statuses = props.statuses
     const users = props.users
     const labels = props.labels
+    const filter = props.filter
     const { data, setData, get, processing, errors } = useForm<FormData>({
-        status: '',
-        executor: '',
-        labels: '',
-        self_tasks: ''
+        status: filter.status,
+        executor: filter.executor,
+        labels: filter.labels,
+        self_tasks: filter.self_tasks,
     })
     
     const formData = new FormData();
