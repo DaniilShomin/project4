@@ -30,11 +30,17 @@ class IndexTaskView(BaseTaskView):
     def get(self, request):
         tasks = Task.objects.all()
         filterset = TaskFilter(request.GET, queryset=tasks, request=request)
+        labels = Label.objects.all()
+        users = User.objects.all()
+        statuses = Status.objects.all()
         return inertia_render(
             request,
             "Tasks",
             props={
                 "tasks": filterset.qs,
+                "labels": labels,
+                "users": users,
+                "statuses": statuses,
             },
         )
 

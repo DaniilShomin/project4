@@ -29,6 +29,11 @@ export default function Create(props) {
 
   const formData = new FormData();
     formData.append('name', data.name);
+    formData.append('description', data.description);
+    formData.append('status', data.status);
+    formData.append('author', data.author);
+    formData.append('executor', data.executor);
+    formData.append('labels', data.labels);
 
   const handleSubmit  = (e: React.FormEvent) => {
     e.preventDefault()
