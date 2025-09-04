@@ -5,12 +5,18 @@ import Footer from '../components/Footer';
 
 export default function Index( props ) {
     const users = props.users;
+    const error = props.error;
   return (
     
       <div>
         <Header />
         <main>
             <div class="container-md mt-3">
+                {error && (
+                    <div className="alert alert-danger alert-dismissible fade show">
+                        {error}
+                    </div>
+                )}
                 <h1>Users</h1>
                 <table class="table table-striped mt-2" data-test="checks">
                     <thead>

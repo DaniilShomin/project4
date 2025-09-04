@@ -38,21 +38,25 @@ export default function Loggin(props) {
     <div>
         <Header />
         <main>
-    <div className="container-md mt-3">
-    <h1>Login</h1>
-    {error && (
-        <ul class="errorlist">
-            <li>{error}</li></ul>
-        )}
-    <form onSubmit={handleSubmit}>
-      <label htmlFor="username">Login:</label>
-      <input id="username" name="username" value={data.username} onChange={(e) => setData('username', e.target.value)} /><br />
-      <label htmlFor="last_name">Password:</label>
-      <input id="last_name" name="password" value={data.password} type="password" onChange={(e) => setData('password', e.target.value)}/><br />
-      <button type="submit">login</button>
-    </form>
-    </div>
-    </main>
+          <div className="container-md mt-3">
+          <h1>Login</h1>
+          {error && (
+              <ul className="list-unstyled text-danger">
+                  <li>{error}</li></ul>
+              )}
+          <form onSubmit={handleSubmit}>
+            <div className="mb-3">
+              <label className="form-label"  htmlFor="username">Login:</label>
+              <input type="text" className="form-control" id="username" name="username" value={data.username} onChange={(e) => setData('username', e.target.value)} /><br />
+            </div>
+            <div className="mb-3">
+              <label className="form-label" htmlFor="last_name">Password:</label>
+              <input id="last_name" className="form-control" name="password" value={data.password} type="password" onChange={(e) => setData('password', e.target.value)}/><br />
+            </div>
+            <button className="btn btn-primary" type="submit">login</button>
+          </form>
+          </div>
+          </main>
         <Footer />
     </div>
   )

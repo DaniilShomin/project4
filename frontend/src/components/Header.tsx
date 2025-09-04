@@ -17,7 +17,7 @@ function Header( ) {
                         <Link className="nav-link" href="/users/">Users</Link>
                     </li>
                     { auth?.isAuthenticated && (
-                        <div>
+                        <div className="nav-item">
                             <li className="nav-item">
                                 <Link className="nav-link" href="/statuses/">Statuses</Link>
                             </li>
@@ -32,7 +32,7 @@ function Header( ) {
                     </ul>
                     <ul className="navbar-nav">
                     { auth?.isAuthenticated ? (
-                        <div>
+                        <div className="nav-item">
                             <li className="nav-item">
                                 <Link 
                                     href="/logout/" 

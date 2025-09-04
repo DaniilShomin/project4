@@ -51,21 +51,31 @@ export default function Registration(props) {
     <div className="container-md mt-3">
     <h1>Registration</h1>
     {error && (
-        <ul class="errorlist">
+        <ul className="list-unstyled text-danger">
             <li>{error}</li></ul>
         )}
     <form onSubmit={handleSubmit}>
-      <label htmlFor="first_name">First name:</label>
-      <input id="first_name" name="first_name" value={data.first_name} onChange={(e) => setData('first_name', e.target.value)} /><br />
-      <label htmlFor="last_name">Last name:</label>
-      <input id="last_name" name="last_name" value={data.last_name} onChange={(e) => setData('last_name', e.target.value)} /><br />
-      <label htmlFor="username">Username:</label>
-      <input id="username" name="username" value={data.username} onChange={(e) => setData('username', e.target.value)}/><br />
-      <label htmlFor="password1">Password:</label>
-      <input id="password1" name="password1" value={data.password1} type="password" onChange={(e) => setData('password1', e.target.value)}/><br />
-      <label htmlFor="password2">Password:</label>
-      <input id="password2" name="password2" value={data.password2} type="password" onChange={(e) => setData('password2', e.target.value)}/><br />
-      <button type="submit">Отправить</button>
+      <div className="mb-3">
+        <label className="form-label" htmlFor="first_name">First name:</label>
+        <input className="form-control" id="first_name" type="text" name="first_name" value={data.first_name} onChange={(e) => setData('first_name', e.target.value)} /><br />
+      </div>
+      <div className="mb-3">
+        <label className="form-label" htmlFor="last_name">Last name:</label>
+        <input className="form-control" id="last_name" type="text" name="last_name" value={data.last_name} onChange={(e) => setData('last_name', e.target.value)} /><br />
+      </div>
+      <div className="mb-3">
+        <label className="form-label" htmlFor="username">Username:</label>
+        <input className="form-control" id="username" type="text" name="username" value={data.username} onChange={(e) => setData('username', e.target.value)}/><br />
+      </div>
+      <div className="mb-3">
+        <label className="form-label" htmlFor="password1">Password:</label>
+        <input className="form-control" id="password1" name="password1" value={data.password1} type="password" onChange={(e) => setData('password1', e.target.value)}/><br />
+      </div>
+      <div className="mb-3">
+        <label className="form-label" htmlFor="password2">Password:</label>
+        <input className="form-control" id="password2" name="password2" value={data.password2} type="password" onChange={(e) => setData('password2', e.target.value)}/><br />
+      </div>
+      <button className="btn btn-primary" type="submit">Отправить</button>
     </form>
     </div>
     </main>

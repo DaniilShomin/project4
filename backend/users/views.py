@@ -44,7 +44,7 @@ class CreateUserView(View):
             user.set_password(form.cleaned_data["password1"])
             user.save()
             messages.success(request, _("User registered successfully"))
-            return redirect("login")
+            return location("/login/")
         return self._render_form(
             request, data={"error": f"{form.errors.as_text()}"}
         )
@@ -57,6 +57,8 @@ class CreateUserView(View):
 class UpdateUserView(BaseUserView):
     def get(self, request, pk):
         user = self._get_user(pk)
+        if not user:
+            return location("/users/")
         return self._render_form(request, data={"user": user})
 
     def post(self, request, pk):
@@ -81,7 +83,7 @@ class UpdateUserView(BaseUserView):
                 self.request,
                 _("You do not have permission to change another user."),
             )
-            return location("/users/")
+            return None
         return user
 
     def _render_form(self, request, data):
@@ -91,6 +93,8 @@ class UpdateUserView(BaseUserView):
 class DeleteUserView(BaseUserView):
     def get(self, request, pk):
         user = self._get_user(pk)
+        if not user:
+            return location("/users/")
         return inertia_render(request, "UsersDelete", props={"user": user})
 
     def post(self, request, pk):
@@ -113,5 +117,5 @@ class DeleteUserView(BaseUserView):
                 self.request,
                 _("You do not have permission to change another user."),
             )
-            return location("/users/")
+            return None
         return user

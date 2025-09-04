@@ -39,13 +39,15 @@ export default function Update( props ) {
     <div className="container-md mt-3">
     <h1>Update Label</h1>
     {error && (
-        <ul class="errorlist">
+        <ul className="list-unstyled text-danger">
             <li>{error}</li></ul>
         )}
     <form onSubmit={handleSubmit}>
-      <label htmlFor="name">Name:</label>
-      <input id="name" name="name" value={data.name} onChange={(e) => setData('name', e.target.value)} /><br />
-      <button type="submit">Update</button>
+      <div className="mb-3">
+        <label className="form-label" htmlFor="name">Name:</label>
+        <input className="form-control" id="name" name="name" value={data.name} onChange={(e) => setData('name', e.target.value)} /><br />
+      </div>
+      <button className="btn btn-primary" type="submit">Update</button>
     </form>
     </div>
     </main>

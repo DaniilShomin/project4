@@ -52,35 +52,47 @@ export default function Update(props) {
             <li>{error}</li></ul>
         )}
     <form onSubmit={handleSubmit}>
-      <label htmlFor="name">Name:</label>
-      <input id="name" name="name" value={data.name} onChange={(e) => setData('name', e.target.value)} /><br />
-      <label htmlFor="description">Description:</label>
-      <input id="description" name="description" value={data.description} onChange={(e) => setData('description', e.target.value)} /><br />
-      <label htmlFor="name">Status:</label>
-      <select id="status" name="status" value={data.status} onChange={(e) => setData('status', e.target.value)}>
-        <option value="" selected="">---------</option>
-      {statuses && statuses.map(status => (
-        <option value={`${status.id}`} selected="">{status.name}</option>
-      ))}</select><br />
-      <label htmlFor="author">Author:</label>
-      <select id="author" name="author" value={data.author} onChange={(e) => setData('author', e.target.value)}>
-        <option value="" selected="">---------</option>
-      {users && users.map(user => (
-        <option value={`${user.id}`} selected="">{user.first_name} {user.last_name}</option>
-      ))}</select><br />
-      <label htmlFor="executor">Executor:</label>
-      <select id="executor" name="executor" value={data.executor} onChange={(e) => setData('executor', e.target.value)}>
-        <option value="" selected="">---------</option>
-      {users && users.map(user => (
-        <option value={`${user.id}`} selected="">{user.first_name} {user.last_name}</option>
-      ))}</select><br />
-      <label htmlFor="name">Labels:</label>
-      <select id="labels" name="labels" value={data.labels} onChange={(e) => setData('labels', e.target.value)}>
-        <option value="" selected="">---------</option>
-      {labels && labels.map(label => (
-        <option value={`${label.id}`} selected="">{label.name}</option>
-      ))}</select><br />
-      <button type="submit">Create</button>
+      <div className="mb-3">
+        <label className="form-label" htmlFor="name">Name:</label>
+        <input className="form-control" id="name" name="name" value={data.name} onChange={(e) => setData('name', e.target.value)} /><br />
+      </div>
+      <div className="mb-3">
+        <label className="form-label" htmlFor="description">Description:</label>
+        <input className="form-control" id="description" name="description" value={data.description} onChange={(e) => setData('description', e.target.value)} /><br />
+      </div>
+      <div className="mb-3">
+        <label className="form-label" htmlFor="name">Status:</label>
+        <select className="form-select" id="status" name="status" value={data.status} onChange={(e) => setData('status', e.target.value)}>
+          <option value="" selected="">---------</option>
+        {statuses && statuses.map(status => (
+          <option value={`${status.id}`} selected="">{status.name}</option>
+        ))}</select><br />
+      </div>
+      <div className="mb-3">
+        <label className="form-label" htmlFor="author">Author:</label>
+        <select className="form-select" id="author" name="author" value={data.author} onChange={(e) => setData('author', e.target.value)}>
+          <option value="" selected="">---------</option>
+        {users && users.map(user => (
+          <option value={`${user.id}`} selected="">{user.first_name} {user.last_name}</option>
+        ))}</select><br />
+      </div>
+      <div className="mb-3">
+        <label className="form-label" htmlFor="executor">Executor:</label>
+        <select className="form-select" id="executor" name="executor" value={data.executor} onChange={(e) => setData('executor', e.target.value)}>
+          <option value="" selected="">---------</option>
+        {users && users.map(user => (
+          <option value={`${user.id}`} selected="">{user.first_name} {user.last_name}</option>
+        ))}</select><br />
+      </div>
+      <div className="mb-3">
+        <label className="form-label" htmlFor="name">Labels:</label>
+        <select className="form-select" id="labels" name="labels" value={data.labels} onChange={(e) => setData('labels', e.target.value)}>
+          <option value="" selected="">---------</option>
+        {labels && labels.map(label => (
+          <option value={`${label.id}`} selected="">{label.name}</option>
+        ))}</select><br />
+      </div>
+      <button className="btn btn-primary" type="submit">Create</button>
     </form>
     </div>
     </main>

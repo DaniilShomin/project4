@@ -53,9 +53,9 @@ export default function Index( props ) {
                             <div className="mb-3">
                                 <label className="form-label" htmlFor="id_status">Статус</label>
                                 <select name="status" className="form-select ml-2 mr-3" id="id_status" value={data.status} onChange={(e) => setData('status', e.target.value)}>
-                                    <option value="" selected="">---------</option>
+                                    <option value="" >---------</option>
                                     {statuses && statuses.map(status => (
-                                        <option value={`${status.id}`} selected="">{status.name}</option>
+                                        <option value={status.id}>{status.name}</option>
                                     ))}</select><br />
                             </div>
                             <div className="mb-3">
@@ -63,7 +63,7 @@ export default function Index( props ) {
                                 <select name="executor" className="form-select mr-3 ml-2" id="id_executor" value={data.executor} onChange={(e) => setData('executor', e.target.value)}>
                                     <option value="" selected="">---------</option>
                                     {users && users.map(user => (
-                                        <option value={`${user.id}`} selected="">{user.first_name} {user.last_name}</option>
+                                        <option value={user.id} selected="">{user.first_name} {user.last_name}</option>
                                     ))}</select><br />
                             </div>
                             <div className="mb-3">
@@ -71,7 +71,7 @@ export default function Index( props ) {
                                 <select name="label" className="form-select mr-3 ml-2" id="id_label" value={data.labels} onChange={(e) => setData('labels', e.target.value)}>
                                     <option value="" selected="">---------</option>
                                     {labels && labels.map(label => (
-                                    <option value={`${label.id}`} selected="">{label.name}</option>
+                                    <option value={label.id} selected="">{label.name}</option>
                                     ))}</select><br />
                             </div>
                             <div className="mb-3">

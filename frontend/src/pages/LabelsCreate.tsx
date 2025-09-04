@@ -37,13 +37,15 @@ export default function Create(props) {
     <div className="container-md mt-3">
     <h1>Labels</h1>
     {error && (
-        <ul class="errorlist">
+        <ul className="list-unstyled text-danger">
             <li>{error}</li></ul>
         )}
     <form onSubmit={handleSubmit}>
-      <label htmlFor="name">Name:</label>
-      <input id="name" name="name" value={data.name} onChange={(e) => setData('name', e.target.value)} /><br />
-      <button type="submit">Create</button>
+      <div className="mb-3">
+        <label className="form-label" htmlFor="name">Name:</label>
+        <input className="form-control" id="name" name="name" value={data.name} onChange={(e) => setData('name', e.target.value)} /><br />
+      </div>
+      <button className="btn btn-primary" type="submit">Create</button>
     </form>
     </div>
     </main>
