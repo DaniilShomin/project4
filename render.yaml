@@ -1,19 +1,19 @@
-databases:
-  - name: db
-    postgresMajorVersion: 14
-    plan: free
-    # envVars:
-    #   - key: DATABASE_NAME
-    #     value: postgres
-    #   - key: DATABASE_USERNAME
-    #     value: postgres
-    #   - key: DATABASE_PASSWORD
-    #     value: postgres
-    #   - key: PORT
-    #     value: 5432
-    # disks:
-    #   - name: postgres_data
-    #     mountPath: /var/lib/postgresql/data/
+# databases:
+#   - name: db
+#     postgresMajorVersion: 14
+#     plan: free
+#     # envVars:
+#     #   - key: DATABASE_NAME
+#     #     value: postgres
+#     #   - key: DATABASE_USERNAME
+#     #     value: postgres
+#     #   - key: DATABASE_PASSWORD
+#     #     value: postgres
+#     #   - key: PORT
+#     #     value: 5432
+#     # disks:
+#     #   - name: postgres_data
+#     #     mountPath: /var/lib/postgresql/data/
 services:
   - type: web
     name: backend
