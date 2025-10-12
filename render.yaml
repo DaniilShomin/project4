@@ -12,10 +12,11 @@ services:
         value: postgres
       - key: DATABASE_PASSWORD
         value: postgres
+      - key: port
+        value: 5432
     disks:
       - name: postgres_data
         mountPath: /var/lib/postgresql/data/
-    port: 5432
   - name: backend
     type: web
     autoDeploy: true
@@ -29,10 +30,11 @@ services:
         value: postgres
       - key: DATABASE_PASSWORD
         value: postgres
+      - key: port
+        value: 8000
     buildFilter:
       paths:
         - ./backend/**
-    port: 8000
   - name: frontend
     type: web
     autoDeploy: true
@@ -40,4 +42,6 @@ services:
     buildFilter:
       paths:
         - ./frontend/**
-    port: 5173
+    envVars:
+      - key: port
+        value: 5173
