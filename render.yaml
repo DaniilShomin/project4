@@ -3,7 +3,7 @@ services:
     type: web
     autoDeploy: true
     image:
-      url: postgres:14
+      url: docker.io/postgres:14
       owner: docker
     envVars:
       - key: DATABASE_NAME
@@ -15,7 +15,7 @@ services:
     disks:
       - name: postgres_data
         mountPath: /var/lib/postgresql/data/
-    ports: '5432'
+    port: 5432
   - name: backend
     type: web
     autoDeploy: true
@@ -32,7 +32,7 @@ services:
     buildFilter:
       paths:
         - ./backend/**
-    ports: '8000'
+    port: 8000
   - name: frontend
     type: web
     autoDeploy: true
@@ -40,4 +40,4 @@ services:
     buildFilter:
       paths:
         - ./frontend/**
-    ports: '5173'
+    port: 5173
