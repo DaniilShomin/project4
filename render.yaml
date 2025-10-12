@@ -1,0 +1,43 @@
+services:
+  - name: db
+    type: web
+    autoDeploy: true
+    image:
+      url: postgres:14
+      owner: docker
+    envVars:
+      - key: DATABASE_NAME
+        value: postgres
+      - key: DATABASE_USERNAME
+        value: postgres
+      - key: DATABASE_PASSWORD
+        value: postgres
+    disks:
+      - name: postgres_data
+        mountPath: /var/lib/postgresql/data/
+    ports: '5432'
+  - name: backend
+    type: web
+    autoDeploy: true
+    dockerfilePath: ./Dockerfile
+    envVars:
+      - key: DATABASE_HOST
+        value: db
+      - key: DATABASE_NAME
+        value: postgres
+      - key: DATABASE_USERNAME
+        value: postgres
+      - key: DATABASE_PASSWORD
+        value: postgres
+    buildFilter:
+      paths:
+        - ./backend/**
+    ports: '8000'
+  - name: frontend
+    type: web
+    autoDeploy: true
+    dockerfilePath: ./frontend/Dockerfile
+    buildFilter:
+      paths:
+        - ./frontend/**
+    ports: '5173'
