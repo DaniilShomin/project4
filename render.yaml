@@ -1,4 +1,4 @@
-datebases:
+databases:
   - name: db
     postgresMajorVersion: 14
     plan: free
