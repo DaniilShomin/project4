@@ -1,6 +1,7 @@
 services:
   - name: db
     type: web
+    runtime: docker
     autoDeploy: true
     image:
       url: docker.io/postgres:14
@@ -11,13 +12,14 @@ services:
         value: postgres
       - key: DATABASE_PASSWORD
         value: postgres
-      - key: port
+      - key: PORT
         value: 5432
     # disks:
     #   - name: postgres_data
     #     mountPath: /var/lib/postgresql/data/
   - name: backend
     type: web
+    runtime: docker
     autoDeploy: true
     dockerfilePath: ./Dockerfile
     envVars:
@@ -29,18 +31,19 @@ services:
         value: postgres
       - key: DATABASE_PASSWORD
         value: postgres
-      - key: port
+      - key: PORT
         value: 8000
     buildFilter:
       paths:
         - ./backend/**
   - name: frontend
     type: web
+    runtime: docker
     autoDeploy: true
     dockerfilePath: ./frontend/Dockerfile
     buildFilter:
       paths:
         - ./frontend/**
     envVars:
-      - key: port
+      - key: PORT
         value: 5173
