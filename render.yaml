@@ -4,7 +4,6 @@ services:
     autoDeploy: true
     image:
       url: docker.io/postgres:14
-      owner: docker
     envVars:
       - key: DATABASE_NAME
         value: postgres
@@ -14,9 +13,9 @@ services:
         value: postgres
       - key: port
         value: 5432
-    disks:
-      - name: postgres_data
-        mountPath: /var/lib/postgresql/data/
+    # disks:
+    #   - name: postgres_data
+    #     mountPath: /var/lib/postgresql/data/
   - name: backend
     type: web
     autoDeploy: true
