@@ -1,10 +1,7 @@
-services:
+datebases:
   - name: db
-    type: web
-    autoDeploy: true
-    runtime: docker
-    image:
-      url: docker.io/postgres:14
+    postgresMajorVersion: 14
+    plan: free
     envVars:
       - key: DATABASE_NAME
         value: postgres
@@ -17,8 +14,9 @@ services:
     # disks:
     #   - name: postgres_data
     #     mountPath: /var/lib/postgresql/data/
-  - name: backend
-    type: web
+services:
+  - type: web
+    name: backend
     autoDeploy: true
     runtime: docker
     dockerfilePath: ./Dockerfile
@@ -36,8 +34,8 @@ services:
     buildFilter:
       paths:
         - ./backend/**
-  - name: frontend
-    type: web
+  - type: web
+    name: frontend
     autoDeploy: true
     runtime: docker
     dockerfilePath: ./frontend/Dockerfile
