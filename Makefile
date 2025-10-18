@@ -1,5 +1,8 @@
 install:
-	uv sync && cd frontend && uv run npm install
+	uv sync && cd app/frontend && uv run npm install && uv run npm run build
+
+collectstatic:
+	uv run manage.py collectstatic
 
 migrate:
 	uv run manage.py migrate
